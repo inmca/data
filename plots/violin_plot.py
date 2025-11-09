@@ -1,16 +1,17 @@
 import matplotlib.pyplot as plt
 import seaborn as sns
+import pandas as pd
 
 # Load dataset
-iris = sns.load_dataset('iris')
+df = pd.read_csv('./assets/iris.csv')
 
 # Create violin plot
-sns.violinplot(x='species', y='sepal_length', data=iris)
+sns.violinplot(x='species', y='sepal_length', data=df)
 
 # Add labels and title
 plt.xlabel('Species')
 plt.ylabel('Sepal Length')
-plt.title('Violin Plot - Iris Dataset')
+plt.title('Violin Plot')
 
 plt.tight_layout()
 plt.show()

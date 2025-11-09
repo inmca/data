@@ -1,16 +1,16 @@
 import matplotlib.pyplot as plt
-import seaborn as sns
+import pandas as pd
 
 # Load dataset
-iris = sns.load_dataset('iris')
+df = pd.read_csv('./assets/iris.csv')
 
 # Create histogram
-plt.hist(iris['sepal_length'], bins=30, color='skyblue', alpha=0.7, edgecolor='black')
+plt.hist(df['sepal_length'], bins=30, color='skyblue', alpha=0.7, edgecolor='black')
 
 # Add labels and title
 plt.xlabel('Sepal Length')
 plt.ylabel('Frequency')
-plt.title('Histogram - Iris Dataset')
+plt.title('Histogram')
 plt.grid(axis='y', alpha=0.3)
 
 plt.tight_layout()

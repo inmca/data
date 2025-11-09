@@ -1,13 +1,14 @@
 import matplotlib.pyplot as plt
 import seaborn as sns
+import pandas as pd
 
 # Load dataset
-iris = sns.load_dataset('iris')
+df = pd.read_csv('./assets/iris.csv')
 
 # Create pairplot
-sns.pairplot(iris, hue='species')
+sns.pairplot(df, hue='species')
 
-plt.suptitle('Pairplot - Iris Dataset', y=1.02)
+plt.suptitle('Pairplot', y=1.02)
 plt.tight_layout()
 plt.show()
 

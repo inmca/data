@@ -1,12 +1,12 @@
 import matplotlib.pyplot as plt
-import seaborn as sns
+import pandas as pd
 import numpy as np
 
 # Load dataset
-iris = sns.load_dataset('iris')
+df = pd.read_csv('./assets/iris.csv')
 
 # Calculate mean values by species
-species_means = iris.groupby('species').agg({
+species_means = df.groupby('species').agg({
     'sepal_length': 'mean',
     'petal_length': 'mean'
 })
@@ -21,7 +21,7 @@ plt.fill_between(x, species_means['sepal_length'], species_means['sepal_length']
 # Add labels, title, and legend
 plt.xlabel('Species')
 plt.ylabel('Mean Length (cm)')
-plt.title('Area Plot - Iris Dataset')
+plt.title('Area Plot')
 plt.xticks(x, species_means.index)
 plt.legend()
 plt.grid(True, alpha=0.3)

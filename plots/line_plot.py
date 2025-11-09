@@ -1,11 +1,11 @@
 import matplotlib.pyplot as plt
-import seaborn as sns
+import pandas as pd
 
 # Load dataset
-iris = sns.load_dataset('iris')
+df = pd.read_csv('./assets/iris.csv')
 
 # Calculate mean values by species
-species_means = iris.groupby('species')[['sepal_length', 'petal_length']].mean()
+species_means = df.groupby('species')[['sepal_length', 'petal_length']].mean()
 
 # Create line plot
 plt.plot(species_means.index, species_means['sepal_length'], label='Sepal Length', color='blue', marker='o', linewidth=2)
@@ -14,7 +14,7 @@ plt.plot(species_means.index, species_means['petal_length'], label='Petal Length
 # Add labels, title, and legend
 plt.xlabel('Species')
 plt.ylabel('Length (cm)')
-plt.title('Line Plot - Iris Dataset')
+plt.title('Line Plot')
 plt.legend()
 plt.grid(True, alpha=0.3)
 

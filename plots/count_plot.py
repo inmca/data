@@ -1,16 +1,17 @@
 import matplotlib.pyplot as plt
 import seaborn as sns
+import pandas as pd
 
 # Load dataset
-titanic = sns.load_dataset('titanic')
+df = pd.read_csv('./assets/titanic_train.csv')
 
 # Create count plot
-sns.countplot(x='class', data=titanic)
+sns.countplot(x='Pclass', data=df)
 
 # Add labels and title
 plt.xlabel('Class')
 plt.ylabel('Count')
-plt.title('Count Plot - Titanic Dataset')
+plt.title('Count Plot')
 plt.xticks(rotation=0)
 
 plt.tight_layout()

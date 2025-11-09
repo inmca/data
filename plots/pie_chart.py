@@ -1,18 +1,18 @@
 import matplotlib.pyplot as plt
-import seaborn as sns
+import pandas as pd
 
 # Load dataset
-titanic = sns.load_dataset('titanic')
+df = pd.read_csv('./assets/titanic_train.csv')
 
-# Count by class
-class_counts = titanic['class'].value_counts()
+# Count by class (Pclass column)
+class_counts = df['Pclass'].value_counts().sort_index()
 colors = ['#ff9999', '#66b3ff', '#99ff99']
 
 # Create pie chart
-plt.pie(class_counts.values, labels=class_counts.index, colors=colors, autopct='%1.1f%%', startangle=90)
+plt.pie(class_counts.values, labels=[f'Class {i}' for i in class_counts.index], colors=colors, autopct='%1.1f%%', startangle=90)
 
 # Add title
-plt.title('Pie Chart - Titanic Dataset (Class Distribution)')
+plt.title('Pie Chart')
 plt.axis('equal')
 
 plt.tight_layout()
